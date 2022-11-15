@@ -1,6 +1,6 @@
 # Elite Suito Speed Bug fix
 
-This is a soft fix that gives pretty realistic results. The actual speed is derived from [this](https://www.gribble.org/cycling/power_v_speed.html).
+This is a soft fix that gives pretty realistic results. The actual speed is derived from [this](https://www.gribble.org/cycling/power_v_speed.html) formula.
 
 ## Usage
 
