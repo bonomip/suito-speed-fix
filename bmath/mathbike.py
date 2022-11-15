@@ -1,15 +1,30 @@
 import math
 
-g = 9.80665
-w = 72 + 10
+#weight of rider + bike, equipment, etc. [[ change this !!! ]]
+weight = 68 + 8
+#gravity
+gravity = 9.80665
+#speed of headwing is set at 0 and not used
+pass
+#uphill or downhill
+grade = 0
+# coefficient of rolling resistance
 crr = 0.0050
+# frontal area * drag coefficient
+cd = 0.330
+# air density (Rho)
 air = 1.225
-
+# 1 / ( 1 - drive_train_loss / 100 )  
 l = 1/(1-0.03)
-fg = g * w * math.sin(math.atan(0))
-fr = g * w * math.cos(math.atan(0)) * crr
+
+
+#F_{gravity}
+fg = gravity * weight * math.sin(math.atan(grade/100))
+#F_{rolling}
+fr = gravity * weight * math.cos(math.atan(grade/100)) * crr
+#F_{drag}
 def fd(vel):
-    return 0.5 * 0.330 * air * math.exp(-0.00011856 * 320) * vel * vel
+    return 0.5 * cd * air * math.exp(-0.00011856 * 320) * vel * vel
 
 def vel(watts, vel):
     return watts * l / (fg + fr + fd(vel))
