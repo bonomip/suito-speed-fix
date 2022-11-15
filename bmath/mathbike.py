@@ -4,7 +4,7 @@ import math
 weight = 68 + 8
 #gravity
 gravity = 9.80665
-#speed of headwing is set at 0 and not used
+#speed of head-wind is set at 0 and not used
 pass
 #uphill or downhill
 grade = 0
