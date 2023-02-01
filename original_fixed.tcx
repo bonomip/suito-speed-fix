@@ -19,7 +19,7 @@
           <Value>149</Value>
         </MaximumHeartRateBpm>
         <Intensity>Active</Intensity>
-<Cadence>67.88329519450801</Cadence>        <TriggerMethod>Manual</TriggerMethod>
+<Cadence>67.92173913043479</Cadence>        <TriggerMethod>Manual</TriggerMethod>
 
 
 
@@ -28441,7 +28441,7 @@
           <Value>176</Value>
         </MaximumHeartRateBpm>
         <Intensity>Active</Intensity>
-<Cadence>80.36605657237936</Cadence>        <TriggerMethod>Manual</TriggerMethod>
+<Cadence>80.51414309484193</Cadence>        <TriggerMethod>Manual</TriggerMethod>
         <Track>
           <Trackpoint>
             <Time>2023-01-31T17:12:43.000Z</Time>
@@ -36276,7 +36276,7 @@
           <Value>172</Value>
         </MaximumHeartRateBpm>
         <Intensity>Active</Intensity>
-<Cadence>68.11574952561669</Cadence>        <TriggerMethod>Manual</TriggerMethod>
+<Cadence>68.19829222011386</Cadence>        <TriggerMethod>Manual</TriggerMethod>
         <Track>
           <Trackpoint>
             <Time>2023-01-31T17:22:43.000Z</Time>

@@ -8,8 +8,10 @@ class TrackPoint:
         self.cadence = 0
         self.dist = 0;
 
-    def update(self, marker, value):
-        if( marker == "ns3:Watts" ):
+
+
+    def update(self, marker, value, line):
+        if( marker == "ns3:Watts" ):                    
             self.speed = iterVel(int(value), 20/3.6)
         if ( marker == "Cadence"):
             self.cadence = int(value);
@@ -22,16 +24,16 @@ class Lap:
         self.max_speed = 0
         self.avg_speed = 0
         self.avg_cad = 0
-        self.count = 0
+        self.count = -1
 
     def update(self, marker, line):
         if ( marker == "Trackpoint" ):
             self.tps.append(TrackPoint())
         else:
-            self.tps[-1].update(marker, getData(line, marker))
+            self.tps[-1].update(marker, getData(line, marker), line)
 
     def finish(self):
-        for tr in self.tps[1:]:
+        for tr in self.tps:
             if tr.speed > self.max_speed:
                 self.max_speed = tr.speed
 
@@ -42,6 +44,8 @@ class Lap:
 
         self.avg_speed /= self.count
         self.avg_cad /= self.count
+
+        print(self.avg_cad)
     
     def getTrackPoint(self, index):
         return self.tps[index+1];
@@ -59,7 +63,6 @@ class Course:
             self.laps[-1].update(marker, line)
 
     def finish(self):
-        print(self.laps[1:])
         for lp in self.laps[1:]:
             lp.finish();
 

@@ -35,9 +35,7 @@ with open(sys.argv[1], "r") as file_input:
                     tp = lap.getTrackPoint(tp_count);
 
                 if line.lstrip().startswith("<Cadence>"):
-                    print(line);
                     line = "<Cadence>"+str(lap.avg_cad)+"</Cadence>"
-                    print(line);
 
                 if line.lstrip().startswith("<DistanceMeters>"):
                     
