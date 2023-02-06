@@ -34,15 +34,12 @@ with open(sys.argv[1], "r") as file_input:
                     tp_count = tp_count + 1
                     tp = lap.getTrackPoint(tp_count);
 
-                if line.lstrip().startswith("<Cadence>"):
-                    line = "<Cadence>"+str(lap.avg_cad)+"</Cadence>"
-
                 if line.lstrip().startswith("<DistanceMeters>"):
-                    
-                    line = "<DistanceMeters>"+str(lap.tot_dist)+"</DistanceMeters>"
+                    line = "\t\t\t\t<DistanceMeters>"+str(lap.tot_dist)+"</DistanceMeters>\n"
                 
                 if line.lstrip().startswith("<MaximumSpeed>"):
-                    line = "<MaximumSpeed>"+str(lap.max_speed)+"</MaximumSpeed>"
+                    line = "\t\t\t\t<MaximumSpeed>"+str(lap.max_speed)+"</MaximumSpeed>\n"
+                    
             else:
                 if line.lstrip().startswith("<Lap StartTime"):
                     lap_count = lap_count + 1;
@@ -52,12 +49,12 @@ with open(sys.argv[1], "r") as file_input:
 
                 if line.lstrip().startswith("<DistanceMeters>"): #TrackPoint
                     tp.dist += tp.speed
-                    line = "<DistanceMeters>"+str(tp.dist)+"</DistanceMeters>"
+                    line = "\t\t\t\t\t\t<DistanceMeters>"+str(tp.dist)+"</DistanceMeters>\n"
                 
                 if line.lstrip().startswith("<ns3:Speed>"):
-                    line = "<ns3:Speed>"+str(tp.speed)+"</ns3:Speed>"
+                    line = "\t\t\t\t\t\t\t<ns3:Speed>"+str(tp.speed)+"</ns3:Speed>\n"
                 
                 if line.lstrip().startswith("<ns3:AvgSpeed>"):
-                    line = "<ns3:AvgSpeed>"+str(lap.avg_speed)+"</ns3:AvgSpeed>"
+                    line = "\t\t\t\t\t\t<ns3:AvgSpeed>"+str(lap.avg_speed)+"</ns3:AvgSpeed>\n"
             
             file_output.write(line)

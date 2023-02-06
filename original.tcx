@@ -23,11 +23,6 @@
         <Intensity>Active</Intensity>
         <Cadence>84</Cadence>
         <TriggerMethod>Manual</TriggerMethod>
-
-
-
-
-        
         <Track>
           <Trackpoint>
             <Time>2023-01-31T16:36:14.000Z</Time>
