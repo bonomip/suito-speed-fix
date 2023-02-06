@@ -29,7 +29,7 @@ def fd(vel):
 def vel(watts, vel):
     return watts * l / (fg + fr + fd(vel))
 
-def iterVel(watts, guess):
+def iterVel(watts, guess=20/3.6):
     v = vel(watts, guess)
     while abs(v - guess) >= 0.1/3.6:
         if v - guess > 0:

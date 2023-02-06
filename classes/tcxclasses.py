@@ -7,11 +7,9 @@ class TrackPoint:
         self.speed = 0
         self.dist = 0;
 
-
-
-    def update(self, marker, value):
+    def update(self, line, marker):
         if( marker == "ns3:Watts" ):                    
-            self.speed = iterVel(int(value), 20/3.6)
+            self.speed = iterVel(int(getData(line, marker)))
 
 class Lap:
 
@@ -26,7 +24,7 @@ class Lap:
         if ( marker == "Trackpoint" ):
             self.tps.append(TrackPoint())
         else:
-            self.tps[-1].update(marker, getData(line, marker))
+            self.tps[-1].update(line, marker)
 
     def finish(self):
         for tr in self.tps[1:]:

@@ -47,6 +47,10 @@ with open(sys.argv[1], "r") as file_input:
                     is_header = True;
                     tp_count = -1;
 
+                if line.lstrip().startswith("<Trackpoint>"):
+                    tp_count = tp_count + 1
+                    tp = lap.getTrackPoint(tp_count);
+
                 if line.lstrip().startswith("<DistanceMeters>"): #TrackPoint
                     tp.dist += tp.speed
                     line = "\t\t\t\t\t\t<DistanceMeters>"+str(tp.dist)+"</DistanceMeters>\n"
