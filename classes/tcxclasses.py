@@ -5,7 +5,6 @@ class TrackPoint:
 
     def __init__(self):
         self.speed = 0
-        self.dist = 0;
 
     def update(self, line, marker):
         if( marker == "ns3:Watts" ):                    
@@ -43,7 +42,7 @@ class Lap:
 class Course:
 
     def __init__(self):
-
+        self.dist = 0;
         self.laps = [Lap()];
 
     def update(self, marker, line):

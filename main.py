@@ -52,8 +52,8 @@ with open(sys.argv[1], "r") as file_input:
                     tp = lap.getTrackPoint(tp_count);
 
                 if line.lstrip().startswith("<DistanceMeters>"): #TrackPoint
-                    tp.dist += tp.speed
-                    line = "\t\t\t\t\t\t<DistanceMeters>"+str(tp.dist)+"</DistanceMeters>\n"
+                    course.dist += tp.speed
+                    line = "\t\t\t\t\t\t<DistanceMeters>"+str(course.dist)+"</DistanceMeters>\n"
                 
                 if line.lstrip().startswith("<ns3:Speed>"):
                     line = "\t\t\t\t\t\t\t<ns3:Speed>"+str(tp.speed)+"</ns3:Speed>\n"
