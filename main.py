@@ -1,5 +1,5 @@
 import sys
-
+import os 
 from parser.tcx import getMarker
 from classes.tcxclasses import Course
 
@@ -23,10 +23,15 @@ tp_count = -1;
 tp = 0;
 
 #write
-name = sys.argv[1]
-name = name[:-4]
+path = sys.argv[1]
+path = os.path.normpath(path)
+tokens = path.split(os.sep)
+tokens[-1] = "fixed_"+tokens[-1]
+tokens[0] = "/"+tokens[0]
+path = os.path.join(*tokens)
+
 with open(sys.argv[1], "r") as file_input:
-    with open(name+"_fixed.tcx", "w") as file_output:
+    with open(path, "w") as file_output:
         for line in file_input:    
             if is_header :
                 if line.lstrip().startswith("<Trackpoint>"):
